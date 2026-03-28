@@ -209,6 +209,10 @@ img {
   justify-content: center;
 }
 
+.player-actions {
+  margin-top: 18px;
+}
+
 .hero-panel {
   padding: 18px;
 }
@@ -223,6 +227,12 @@ img {
   justify-content: space-between;
   gap: 16px;
   padding: 4px 4px 14px;
+}
+
+.panel-header-centered {
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 18px;
 }
 
 .panel-title {
@@ -350,6 +360,10 @@ img {
   margin-top: 22px;
 }
 
+.quick-link-grid-balanced .mini-link-card-featured {
+  grid-column: 1 / -1;
+}
+
 .mini-link-card {
   display: flex;
   align-items: flex-start;
@@ -364,6 +378,16 @@ img {
 .mini-link-card:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.07);
+}
+
+.mini-link-card-featured {
+  padding: 24px;
+  align-items: center;
+}
+
+.mini-link-card-featured .mini-link-icon {
+  width: 44px;
+  height: 44px;
 }
 
 .mini-link-icon {
@@ -383,15 +407,41 @@ img {
   gap: 3px;
 }
 
+.mini-link-copy-featured {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
 .mini-link-copy strong {
   font-size: 0.98rem;
   color: #fff;
+}
+
+.mini-link-copy-featured strong {
+  font-size: 1.15rem;
 }
 
 .mini-link-copy small {
   font-size: 0.86rem;
   line-height: 1.55;
   color: rgba(255, 230, 242, 0.65);
+}
+
+.mini-link-copy-featured small {
+  font-size: 0.95rem;
+}
+
+.mini-link-copy em {
+  font-style: normal;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255, 196, 233, 0.78);
+  margin-top: 2px;
+}
+
+.mini-link-copy-featured em {
+  font-size: 0.9rem;
 }
 
 @media (max-width: 1100px) {
@@ -422,9 +472,8 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .panel-header {
-    flex-direction: column;
-    align-items: flex-start;
+  .quick-link-grid-balanced .mini-link-card-featured {
+    grid-column: auto;
   }
 }
 

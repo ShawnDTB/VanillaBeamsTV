@@ -1,35 +1,45 @@
 import "./App.css";
 import { useMemo } from "react";
-import { Heart, Gift, Map, Play, Users, ExternalLink, Twitch, Youtube, Music2 } from "lucide-react";
+import {
+  Heart,
+  Play,
+  Users,
+  ExternalLink,
+  MonitorPlay,
+  Video,
+  Gamepad2,
+} from "lucide-react";
 
 const linkCards = [
   {
-    title: "Minecraft Server",
-    text: "Jump into the community SMP.",
-    href: "#",
-    icon: Map,
+    title: "Minecraft SMP",
+    text: "Join at play.vanillabeams.tv",
+    subtext: "Crossplay • Java + Bedrock • Bedrock Port 19132",
+    href: "https://vanillabeams.tv/map",
+    icon: Gamepad2,
     external: false,
-  },
-  {
-    title: "TikTok",
-    text: "Short-form clips and content.",
-    href: "#",
-    icon: Music2,
-    external: false,
+    featured: true,
   },
   {
     title: "Twitch",
     text: "Live streams and VOD access.",
     href: "https://twitch.tv/vanillabeamstv",
-    icon: Twitch,
+    icon: MonitorPlay,
+    external: true,
+  },
+  {
+    title: "TikTok",
+    text: "Short-form clips and content.",
+    href: "https://www.tiktok.com/@vanillabeamstv",
+    icon: Video,
     external: true,
   },
   {
     title: "YouTube",
     text: "Highlights and future uploads.",
-    href: "#",
-    icon: Youtube,
-    external: false,
+    href: "https://www.youtube.com/channel/UCDmY6JLZo_L5elPM_3_l6BQ",
+    icon: Play,
+    external: true,
   },
   {
     title: "Discord",
@@ -42,7 +52,8 @@ const linkCards = [
 
 export default function App() {
   const twitchEmbedSrc = useMemo(() => {
-    const parent = typeof window !== "undefined" ? window.location.hostname : "localhost";
+    const parent =
+      typeof window !== "undefined" ? window.location.hostname : "localhost";
     return `https://player.twitch.tv/?channel=vanillabeamstv&parent=${parent}&muted=true`;
   }, []);
 
@@ -67,7 +78,9 @@ export default function App() {
             <a href="https://vanillabeams.tv">Home</a>
             <a href="https://vanillabeams.tv/support">Support</a>
             <a href="https://vanillabeams.tv/map">Map</a>
-            <a href="https://discord.gg/2DxZzVW3yj" target="_blank" rel="noreferrer">Discord</a>
+            <a href="https://discord.gg/2DxZzVW3yj" target="_blank" rel="noreferrer">
+              Discord
+            </a>
           </nav>
 
           <a
@@ -87,8 +100,27 @@ export default function App() {
           <div className="container hero-stack">
             <div className="hero-copy hero-copy-centered">
               <h1>VanillaBeamsTV</h1>
+            </div>
 
-              <div className="hero-actions centered-actions">
+            <div className="hero-panel glass-card webplayer-panel">
+              <div className="panel-header panel-header-centered">
+                <div>
+                  <div className="panel-title">Featured Stream</div>
+                  <div className="panel-subtitle">Watch live right from the homepage</div>
+                </div>
+              </div>
+
+              <div className="stream-frame large-stream-frame">
+                <iframe
+                  title="VanillaBeamsTV Twitch player"
+                  src={twitchEmbedSrc}
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                />
+              </div>
+
+              <div className="hero-actions centered-actions player-actions">
                 <a
                   className="btn btn-primary"
                   href="https://twitch.tv/vanillabeamstv"
@@ -108,35 +140,6 @@ export default function App() {
                   <Users size={16} />
                   Join Discord
                 </a>
-              </div>
-            </div>
-
-            <div className="hero-panel glass-card webplayer-panel">
-              <div className="panel-header">
-                <div>
-                  <div className="panel-title">Featured Stream</div>
-                  <div className="panel-subtitle">Watch live right from the homepage</div>
-                </div>
-
-                <a
-                  className="panel-link"
-                  href="https://twitch.tv/vanillabeamstv"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Open channel
-                  <ExternalLink size={15} />
-                </a>
-              </div>
-
-              <div className="stream-frame large-stream-frame">
-                <iframe
-                  title="VanillaBeamsTV Twitch player"
-                  src={twitchEmbedSrc}
-                  width="100%"
-                  height="100%"
-                  allowFullScreen
-                />
               </div>
             </div>
           </div>
@@ -162,9 +165,11 @@ export default function App() {
                   <div className="section-label">About VanillaBeamsTV</div>
                   <h2>Chill streams, good vibes, and a community that likes to just hang out</h2>
                   <p>
-                    VanillaBeamsTV is a chill streamer who plays Rivals, Minecraft, and enjoys relaxing, vibing out,
-                    and talking with her peeps. The goal of the stream is simple: keep things fun, welcoming, and easy
-                    to jump into whether people are there for the gameplay, the conversations, or just the overall vibe.
+                    VanillaBeamsTV is a chill streamer who plays Rivals, Minecraft,
+                    and enjoys relaxing, vibing out, and talking with her peeps.
+                    The goal of the stream is simple: keep things fun, welcoming,
+                    and easy to jump into whether people are there for the gameplay,
+                    the conversations, or just the overall vibe.
                   </p>
                 </div>
 
@@ -186,11 +191,12 @@ export default function App() {
               <div className="section-label">Support</div>
               <h2>Support the stream</h2>
               <p>
-                The easiest ways to support are by subscribing on Twitch or donating directly. Both help the stream grow
-                and make it easier to keep creating content for the community.
+                The easiest ways to support are by subscribing on Twitch or donating
+                directly. Both help the stream grow and make it easier to keep creating
+                content for the community.
               </p>
 
-              <div className="support-actions">
+              <div className="support-actions centered-actions">
                 <a
                   href="https://twitch.tv/vanillabeamstv"
                   target="_blank"
@@ -208,13 +214,13 @@ export default function App() {
             <div className="glass-card info-card">
               <div className="section-label">Quick Links</div>
               <h2>Everything in one place</h2>
-              <div className="quick-link-grid">
+              <div className="quick-link-grid quick-link-grid-balanced">
                 {linkCards.map((item) => {
                   const Icon = item.icon;
                   return (
                     <a
                       key={item.title}
-                      className="mini-link-card"
+                      className={`mini-link-card ${item.featured ? "mini-link-card-featured" : ""}`}
                       href={item.href}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noreferrer" : undefined}
@@ -222,9 +228,12 @@ export default function App() {
                       <span className="mini-link-icon">
                         <Icon size={16} />
                       </span>
-                      <span className="mini-link-copy">
+                      <span
+                        className={`mini-link-copy ${item.featured ? "mini-link-copy-featured" : ""}`}
+                      >
                         <strong>{item.title}</strong>
                         <small>{item.text}</small>
+                        {item.subtext ? <em>{item.subtext}</em> : null}
                       </span>
                     </a>
                   );
