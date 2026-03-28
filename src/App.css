@@ -1,5 +1,6 @@
 :root {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   color: #ffffff;
   background: #120714;
 }
@@ -117,7 +118,7 @@ img {
 .nav a {
   font-size: 0.95rem;
   color: rgba(255, 227, 242, 0.78);
-  transition: 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .nav a:hover {
@@ -133,17 +134,25 @@ img {
   padding: 13px 20px;
   font-weight: 700;
   font-size: 0.95rem;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  opacity: 0.96;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, #ff4fa1 0%, #d73cff 100%);
   color: white;
-  box-shadow: 0 16px 40px rgba(255, 55, 144, 0.3);
+  box-shadow: 0 10px 24px rgba(255, 55, 144, 0.22);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 12px 28px rgba(255, 55, 144, 0.28);
 }
 
 .btn-secondary {
@@ -152,10 +161,18 @@ img {
   color: white;
 }
 
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .btn-outline {
   background: rgba(255, 85, 170, 0.12);
   border: 1px solid rgba(255, 192, 229, 0.24);
   color: white;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 85, 170, 0.16);
 }
 
 .glass-card {
@@ -167,17 +184,17 @@ img {
 }
 
 .hero-section {
-  padding: 56px 0 32px;
+  padding: 40px 0 32px;
 }
 
 .refined-hero {
-  padding-top: 56px;
+  padding-top: 36px;
 }
 
 .hero-stack {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 24px;
 }
 
 .hero-copy {
@@ -189,13 +206,37 @@ img {
   margin: 0 auto;
 }
 
-.hero-copy h1 {
-  margin: 0;
-  font-size: clamp(3.25rem, 6vw, 5.6rem);
-  line-height: 0.96;
-  font-weight: 900;
-  letter-spacing: -0.045em;
-  color: #fff;
+.hero-banner-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-banner-card {
+  width: min(100%, 980px);
+  padding: 16px;
+  border-radius: 34px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255, 122, 188, 0.12), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  pointer-events: none;
+}
+
+.hero-banner-logo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 30px rgba(255, 60, 150, 0.12));
 }
 
 .hero-actions {
@@ -248,14 +289,6 @@ img {
   color: rgba(255, 220, 240, 0.48);
 }
 
-.panel-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #ffd0ea;
-  font-size: 0.92rem;
-}
-
 .stream-frame {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -269,20 +302,9 @@ img {
   aspect-ratio: 16 / 8.4;
 }
 
-.banner-section,
 .about-section,
 .support-section {
   padding: 20px 0 36px;
-}
-
-.banner-card {
-  padding: 12px;
-}
-
-.banner-image {
-  width: 100%;
-  border-radius: 24px;
-  object-fit: cover;
 }
 
 .single-column-wrap {
@@ -372,11 +394,10 @@ img {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .mini-link-card:hover {
-  transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.07);
 }
 
@@ -464,16 +485,16 @@ img {
     flex-wrap: wrap;
   }
 
-  .hero-copy h1 {
-    font-size: 2.8rem;
-  }
-
   .quick-link-grid {
     grid-template-columns: 1fr;
   }
 
   .quick-link-grid-balanced .mini-link-card-featured {
     grid-column: auto;
+  }
+
+  .hero-banner-logo {
+    width: 100%;
   }
 }
 
@@ -487,16 +508,13 @@ img {
   }
 
   .hero-section {
-    padding-top: 32px;
-  }
-
-  .hero-copy h1 {
-    font-size: 2.35rem;
+    padding-top: 28px;
   }
 
   .about-card-merged,
   .info-card,
-  .hero-panel {
+  .hero-panel,
+  .hero-banner-card {
     padding: 20px;
   }
 

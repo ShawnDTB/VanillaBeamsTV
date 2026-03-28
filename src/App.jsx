@@ -4,7 +4,6 @@ import {
   Heart,
   Play,
   Users,
-  ExternalLink,
   MonitorPlay,
   Video,
   Gamepad2,
@@ -78,7 +77,11 @@ export default function App() {
             <a href="https://vanillabeams.tv">Home</a>
             <a href="https://vanillabeams.tv/support">Support</a>
             <a href="https://vanillabeams.tv/map">Map</a>
-            <a href="https://discord.gg/2DxZzVW3yj" target="_blank" rel="noreferrer">
+            <a
+              href="https://discord.gg/2DxZzVW3yj"
+              target="_blank"
+              rel="noreferrer"
+            >
               Discord
             </a>
           </nav>
@@ -98,15 +101,23 @@ export default function App() {
       <main id="home">
         <section className="hero-section refined-hero">
           <div className="container hero-stack">
-            <div className="hero-copy hero-copy-centered">
-              <h1>VanillaBeamsTV</h1>
+            <div className="hero-copy hero-copy-centered hero-banner-wrap">
+              <div className="hero-banner-card glass-card">
+                <img
+                  src="/branding/vanillabanner2.png"
+                  alt="VanillaBeamsTV"
+                  className="hero-banner-logo"
+                />
+              </div>
             </div>
 
             <div className="hero-panel glass-card webplayer-panel">
               <div className="panel-header panel-header-centered">
                 <div>
                   <div className="panel-title">Featured Stream</div>
-                  <div className="panel-subtitle">Watch live right from the homepage</div>
+                  <div className="panel-subtitle">
+                    Watch live right from the homepage
+                  </div>
                 </div>
               </div>
 
@@ -145,31 +156,22 @@ export default function App() {
           </div>
         </section>
 
-        <section className="banner-section">
-          <div className="container">
-            <div className="banner-card glass-card">
-              <img
-                src="/branding/vanillabanner2.png"
-                alt="VanillaBeamsTV banner"
-                className="banner-image"
-              />
-            </div>
-          </div>
-        </section>
-
         <section className="about-section">
           <div className="container single-column-wrap">
             <div className="glass-card about-card-merged">
               <div className="about-grid-merged">
                 <div className="about-copy">
                   <div className="section-label">About VanillaBeamsTV</div>
-                  <h2>Chill streams, good vibes, and a community that likes to just hang out</h2>
+                  <h2>
+                    Chill streams, good vibes, and a community that likes to just
+                    hang out
+                  </h2>
                   <p>
-                    VanillaBeamsTV is a chill streamer who plays Rivals, Minecraft,
-                    and enjoys relaxing, vibing out, and talking with her peeps.
-                    The goal of the stream is simple: keep things fun, welcoming,
-                    and easy to jump into whether people are there for the gameplay,
-                    the conversations, or just the overall vibe.
+                    VanillaBeamsTV is a chill streamer who plays Rivals,
+                    Minecraft, and enjoys relaxing, vibing out, and talking with
+                    her peeps. The goal of the stream is simple: keep things fun,
+                    welcoming, and easy to jump into whether people are there for
+                    the gameplay, the conversations, or just the overall vibe.
                   </p>
                 </div>
 
@@ -191,9 +193,9 @@ export default function App() {
               <div className="section-label">Support</div>
               <h2>Support the stream</h2>
               <p>
-                The easiest ways to support are by subscribing on Twitch or donating
-                directly. Both help the stream grow and make it easier to keep creating
-                content for the community.
+                The easiest ways to support are by subscribing on Twitch or
+                donating directly. Both help the stream grow and make it easier
+                to keep creating content for the community.
               </p>
 
               <div className="support-actions centered-actions">
@@ -220,7 +222,9 @@ export default function App() {
                   return (
                     <a
                       key={item.title}
-                      className={`mini-link-card ${item.featured ? "mini-link-card-featured" : ""}`}
+                      className={`mini-link-card ${
+                        item.featured ? "mini-link-card-featured" : ""
+                      }`}
                       href={item.href}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noreferrer" : undefined}
@@ -229,7 +233,9 @@ export default function App() {
                         <Icon size={16} />
                       </span>
                       <span
-                        className={`mini-link-copy ${item.featured ? "mini-link-copy-featured" : ""}`}
+                        className={`mini-link-copy ${
+                          item.featured ? "mini-link-copy-featured" : ""
+                        }`}
                       >
                         <strong>{item.title}</strong>
                         <small>{item.text}</small>
