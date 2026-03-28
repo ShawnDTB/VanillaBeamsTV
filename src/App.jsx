@@ -141,7 +141,7 @@ function SiteHeader() {
 
         <nav className="nav">
           <a href="/">Home</a>
-          <a href="/perks">Perks</a>
+          <a href="#/perks">Perks</a>
           <a href="https://vanillabeams.tv/map">Map</a>
           <a href="https://discord.gg/2DxZzVW3yj" target="_blank" rel="noreferrer">
             Discord
