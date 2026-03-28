@@ -1,13 +1,10 @@
 import {
+  Heart,
   Crown,
-  Link as LinkIcon,
-  ShieldCheck,
   Sparkles,
   Check,
-  Users,
-  Gamepad2,
+  Link as LinkIcon,
   Play,
-  Heart,
   MessageSquareText,
   Home,
   MapPinned,
@@ -19,9 +16,10 @@ const perkTiers = [
     tier: "Twitch Tier 1",
     icon: Heart,
     accent: "pink",
+    showRoleBoxes: true,
     perks: [
       "Access to linked Discord ↔ Minecraft chat",
-      "Subby Discord role and matching Minecraft rank",
+      "/sethome unlocked",
       "Small claim boost for extra protected land",
       "Minor supporter-only cosmetic or chat perks",
     ],
@@ -31,11 +29,13 @@ const perkTiers = [
     tier: "Twitch Tier 2",
     icon: Crown,
     accent: "purple",
+    showRoleBoxes: true,
     perks: [
       "Everything in Subby",
       "Larger claim boost than Tier 1",
-      "Extra convenience features like /tpa",
-      "Stronger supporter recognition across Discord and Minecraft",
+      "/tpa access",
+      "+1 extra /sethome for a total of 2 homes",
+      "Additional emotes in Twitch chat and Discord",
     ],
   },
   {
@@ -43,11 +43,12 @@ const perkTiers = [
     tier: "Twitch Tier 3",
     icon: Sparkles,
     accent: "gold",
+    showRoleBoxes: true,
     perks: [
       "Everything in Subby and GOAT",
       "Highest claim boost for the most protected land",
-      "Top-tier supporter role and Minecraft rank",
-      "Best cosmetic and recognition perks across the community",
+      "+1 extra /sethome for a total of 3 homes",
+      "Unlocks all Twitch and Discord emotes",
     ],
   },
 ];
@@ -61,11 +62,6 @@ const linkingSteps = [
 
 const perkHighlights = [
   {
-    icon: Users,
-    title: "Discord role sync",
-    text: "Your Twitch subscription gives you the matching Discord supporter role automatically once everything is linked.",
-  },
-  {
     icon: MessageSquareText,
     title: "Linked chat access",
     text: "Supporters can use the linked Discord and Minecraft chat channel connection as part of the community experience.",
@@ -77,13 +73,8 @@ const perkHighlights = [
   },
   {
     icon: Home,
-    title: "Convenience perks",
-    text: "Higher tiers can unlock light utility features like extra travel convenience while keeping gameplay fair.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Consistent identity",
-    text: "Your status stays clean and consistent across stream, Discord, and Minecraft so your support actually feels recognized.",
+    title: "/tpa access and limited /homes",
+    text: "Supporter tiers can unlock travel convenience while keeping survival fair, with home count scaling by tier.",
   },
 ];
 
@@ -93,7 +84,6 @@ export default function PerksPage() {
       <section className="perks-hero-section">
         <div className="container perks-hero-wrap">
           <div className="glass-card perks-hero-card">
-            <div className="section-label">Perks</div>
             <h1>Subscriber Perks</h1>
             <p>
               Subscribe on Twitch, link your accounts, and your support carries
@@ -124,16 +114,18 @@ export default function PerksPage() {
                   </div>
                 </div>
 
-                <div className="perk-mapping-row">
-                  <div className="perk-mapping-box">
-                    <span>Discord Role</span>
+                {tier.showRoleBoxes ? (
+                  <div className="perk-mapping-row">
+                    <div className="perk-mapping-box">
+                      <span>Discord Role</span>
+                    </div>
+                    <div className="perk-mapping-box">
+                      <span>Minecraft Rank</span>
+                    </div>
                   </div>
-                  <div className="perk-mapping-box">
-                    <span>Minecraft Rank</span>
-                  </div>
-                </div>
+                ) : null}
 
-                <div className="perk-list">
+                <div className={`perk-list ${tier.showRoleBoxes ? "perk-list-tight" : ""}`}>
                   {tier.perks.map((perk) => (
                     <div key={perk} className="perk-list-item">
                       <Check size={15} />
@@ -162,19 +154,18 @@ export default function PerksPage() {
             </div>
           </div>
 
-          <div className="glass-card info-card">
-            <div className="section-label">Perks</div>
-            <h2>Tier benefits</h2>
+          <div className="glass-card info-card perks-info-card">
+            <div className="section-label">More Benefits</div>
 
-            <div className="benefit-stack">
+            <div className="benefit-stack benefit-stack-clean">
               {perkHighlights.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <div key={item.title} className="benefit-item">
+                  <div key={item.title} className="benefit-item benefit-item-clean">
                     <div className="benefit-icon">
                       <Icon size={18} />
                     </div>
-                    <div>
+                    <div className="benefit-copy">
                       <strong>{item.title}</strong>
                       <p>{item.text}</p>
                     </div>
