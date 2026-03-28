@@ -129,13 +129,13 @@ function SiteHeader() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <a href="#/" className="brand">
+        <a href="/" className="brand">
           <div className="brand-icon">
             <Heart size={22} />
           </div>
           <div>
             <div className="brand-title">VanillaBeamsTV</div>
-            <div className="brand-subtitle">Live • Community • Minecraft SMP</div>
+            <div className="brand-subtitle">Live • Vibes • Minecraft SMP</div>
           </div>
         </a>
 
@@ -321,7 +321,6 @@ function PerksPage() {
       <section className="perks-hero-section">
         <div className="container perks-hero-wrap">
           <div className="glass-card perks-hero-card">
-            <div className="section-label">Perks</div>
             <h1>Subscriber Perks</h1>
             <p>
               Subscribe on Twitch, link your accounts, and your support carries
@@ -393,7 +392,7 @@ function PerksPage() {
           </div>
 
           <div className="glass-card info-card perks-info-card">
-            <div className="section-label">Perks</div>
+            <div className="section-label">More Benefits</div>
 
             <div className="benefit-stack benefit-stack-clean">
               {perkHighlights.map((item) => {
