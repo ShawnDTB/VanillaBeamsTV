@@ -164,7 +164,7 @@ export default function PerksPage() {
 
           <div className="glass-card info-card">
             <div className="section-label">Perks</div>
-            <h2>Why support matters</h2>
+            <h2>Tier benefits</h2>
 
             <div className="benefit-stack">
               {perkHighlights.map((item) => {
