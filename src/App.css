@@ -525,7 +525,7 @@ img {
   grid-template-columns: 48px 1fr;
   gap: 16px;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .perk-tier-heading {
@@ -592,6 +592,10 @@ img {
   margin-top: 0;
 }
 
+.perk-list-tight {
+  padding-top: 6px;
+}
+
 .perk-list-item {
   display: grid;
   grid-template-columns: 16px 1fr;
@@ -645,6 +649,10 @@ img {
   line-height: 1.7;
 }
 
+.perks-info-card h2 {
+  margin-bottom: 14px;
+}
+
 .benefit-stack {
   display: flex;
   flex-direction: column;
@@ -652,10 +660,18 @@ img {
   margin-top: 18px;
 }
 
+.benefit-stack-clean {
+  gap: 22px;
+}
+
 .benefit-item {
   display: grid;
   grid-template-columns: 38px 1fr;
   gap: 14px;
+  align-items: start;
+}
+
+.benefit-item-clean {
   align-items: start;
 }
 
@@ -670,10 +686,16 @@ img {
   flex-shrink: 0;
 }
 
+.benefit-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .benefit-item strong {
   display: block;
   font-size: 1rem;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .benefit-item p {
