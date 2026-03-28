@@ -8,7 +8,7 @@ import {
   Video,
   Gamepad2,
 } from "lucide-react";
-import PerksPage from "./pages/PerksPage";
+import PerksPage from "./pages/PerksPage.jsx";
 
 const linkCards = [
   {

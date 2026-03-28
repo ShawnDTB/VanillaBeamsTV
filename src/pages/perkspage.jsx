@@ -17,8 +17,6 @@ const perkTiers = [
   {
     name: "Subby",
     tier: "Twitch Tier 1",
-    discordRole: "Discord Role",
-    minecraftRank: "Minecraft Rank",
     icon: Heart,
     accent: "pink",
     perks: [
@@ -31,8 +29,6 @@ const perkTiers = [
   {
     name: "GOAT",
     tier: "Twitch Tier 2",
-    discordRole: "Discord Role",
-    minecraftRank: "Minecraft Rank",
     icon: Crown,
     accent: "purple",
     perks: [
@@ -45,8 +41,6 @@ const perkTiers = [
   {
     name: "Beam Boss",
     tier: "Twitch Tier 3",
-    discordRole: "Discord Role",
-    minecraftRank: "Minecraft Rank",
     icon: Sparkles,
     accent: "gold",
     perks: [
@@ -100,7 +94,7 @@ export default function PerksPage() {
         <div className="container perks-hero-wrap">
           <div className="glass-card perks-hero-card">
             <div className="section-label">Perks</div>
-            <h1>Twitch tiers, Discord roles, and Minecraft ranks all connected</h1>
+            <h1>Subscriber Perks</h1>
             <p>
               Subscribe on Twitch, link your accounts, and your support carries
               across the whole community. The goal is to make every tier feel
@@ -132,10 +126,10 @@ export default function PerksPage() {
 
                 <div className="perk-mapping-row">
                   <div className="perk-mapping-box">
-                    <span>{tier.discordRole}</span>
+                    <span>Discord Role</span>
                   </div>
                   <div className="perk-mapping-box">
-                    <span>{tier.minecraftRank}</span>
+                    <span>Minecraft Rank</span>
                   </div>
                 </div>
 
