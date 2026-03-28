@@ -32,6 +32,10 @@ img {
   max-width: 100%;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 .site-shell {
   position: relative;
   min-height: 100vh;
@@ -54,10 +58,22 @@ img {
 }
 
 .container {
-  width: min(1180px, calc(100% - 40px));
+  width: min(100%, 1280px);
   margin: 0 auto;
   position: relative;
   z-index: 1;
+}
+
+.page-main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.page-content {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 28px 0 48px;
 }
 
 .site-header {
@@ -75,6 +91,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  padding: 0 20px;
 }
 
 .brand {
@@ -183,12 +200,14 @@ img {
   border-radius: 30px;
 }
 
-.hero-section {
-  padding: 40px 0 32px;
-}
-
-.refined-hero {
-  padding-top: 36px;
+.hero-section,
+.about-section,
+.support-section,
+.perks-hero-section,
+.perks-tiers-section,
+.perks-linking-section,
+.perks-cta-section {
+  padding-top: 24px;
 }
 
 .hero-stack {
@@ -198,7 +217,7 @@ img {
 }
 
 .hero-copy {
-  max-width: 900px;
+  max-width: 100%;
 }
 
 .hero-copy-centered {
@@ -213,7 +232,7 @@ img {
 }
 
 .hero-banner-card {
-  width: min(100%, 980px);
+  width: 100%;
   padding: 16px;
   border-radius: 34px;
   position: relative;
@@ -234,24 +253,11 @@ img {
   position: relative;
   z-index: 1;
   width: 100%;
+  max-height: 325px;
+  margin: 0 auto;
   border-radius: 24px;
-  object-fit: contain;
+  object-fit: cover;
   filter: drop-shadow(0 12px 30px rgba(255, 60, 150, 0.12));
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 26px;
-}
-
-.centered-actions {
-  justify-content: center;
-}
-
-.player-actions {
-  margin-top: 18px;
 }
 
 .hero-panel {
@@ -302,17 +308,26 @@ img {
   aspect-ratio: 16 / 8.4;
 }
 
-.about-section,
-.support-section {
-  padding: 20px 0 36px;
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
 }
 
-.single-column-wrap {
-  display: block;
+.centered-actions {
+  justify-content: center;
+}
+
+.player-actions {
+  margin-top: 18px;
 }
 
 .about-card-merged,
-.info-card {
+.info-card,
+.perks-hero-card,
+.perks-cta-card,
+.perk-tier-card {
   padding: 32px;
 }
 
@@ -326,7 +341,6 @@ img {
 .about-copy h2,
 .info-card h2,
 .perks-hero-card h1,
-.perk-tier-name,
 .perks-cta-card h2 {
   margin: 0;
   line-height: 1.1;
@@ -335,6 +349,11 @@ img {
 .about-copy h2,
 .info-card h2 {
   font-size: 2rem;
+}
+
+.perks-hero-card h1,
+.perks-cta-card h2 {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
 }
 
 .about-copy p,
@@ -347,6 +366,16 @@ img {
   font-size: 1rem;
   line-height: 1.75;
   color: rgba(255, 230, 242, 0.7);
+}
+
+.perks-hero-card,
+.perks-cta-card {
+  text-align: center;
+}
+
+.perks-hero-card p,
+.perks-cta-card p {
+  margin-top: 18px;
 }
 
 .section-label {
@@ -373,7 +402,8 @@ img {
   max-width: 340px;
 }
 
-.split-grid {
+.split-grid,
+.perks-linking-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
@@ -477,46 +507,13 @@ img {
 }
 
 .perks-page {
-  padding: 36px 0 48px;
-}
-
-.perks-hero-wrap,
-.perks-tiers-grid,
-.perks-linking-grid {
-  position: relative;
-  z-index: 1;
-}
-
-.perks-hero-card,
-.perks-cta-card {
-  padding: 36px;
-  text-align: center;
-}
-
-.perks-hero-card h1,
-.perks-cta-card h2 {
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
-}
-
-.perks-hero-card p,
-.perks-cta-card p {
-  margin-top: 18px;
-}
-
-.perks-tiers-section,
-.perks-linking-section,
-.perks-cta-section {
-  padding-top: 24px;
+  width: 100%;
 }
 
 .perks-tiers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-}
-
-.perk-tier-card {
-  padding: 24px;
 }
 
 .perk-tier-top {
@@ -547,6 +544,7 @@ img {
 .perk-tier-name {
   font-size: 1.4rem;
   font-weight: 800;
+  line-height: 1.1;
 }
 
 .perk-tier-subtitle {
@@ -612,12 +610,6 @@ img {
   line-height: 1.5;
 }
 
-.perks-linking-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
 .linking-steps {
   display: flex;
   flex-direction: column;
@@ -648,10 +640,6 @@ img {
   line-height: 1.7;
 }
 
-.perks-info-card h2 {
-  margin-bottom: 14px;
-}
-
 .benefit-stack {
   display: flex;
   flex-direction: column;
@@ -659,18 +647,10 @@ img {
   margin-top: 18px;
 }
 
-.benefit-stack-clean {
-  gap: 22px;
-}
-
 .benefit-item {
   display: grid;
   grid-template-columns: 38px 1fr;
   gap: 14px;
-  align-items: start;
-}
-
-.benefit-item-clean {
   align-items: start;
 }
 
@@ -704,8 +684,8 @@ img {
 @media (max-width: 1100px) {
   .about-grid-merged,
   .split-grid,
-  .perks-tiers-grid,
-  .perks-linking-grid {
+  .perks-linking-grid,
+  .perks-tiers-grid {
     grid-template-columns: 1fr;
   }
 
@@ -731,26 +711,23 @@ img {
     grid-column: auto;
   }
 
-  .hero-banner-logo {
-    width: 100%;
-  }
-
   .perk-mapping-row {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 560px) {
-  .container {
-    width: min(100% - 24px, 1180px);
+  .page-content {
+    width: min(100% - 24px, 1120px);
+    padding: 18px 0 36px;
+  }
+
+  .header-inner {
+    padding: 12px;
   }
 
   .brand-title {
     font-size: 1.05rem;
-  }
-
-  .hero-section {
-    padding-top: 28px;
   }
 
   .about-card-merged,

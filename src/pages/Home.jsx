@@ -55,66 +55,66 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main id="home">
-      <section className="hero-section refined-hero">
-        <div className="container hero-stack">
-          <div className="hero-copy hero-copy-centered hero-banner-wrap">
-            <div className="hero-banner-card glass-card">
-              <img
-                src="/branding/vanillabanner2.png"
-                alt="VanillaBeamsTV"
-                className="hero-banner-logo"
-              />
-            </div>
-          </div>
-
-          <div className="hero-panel glass-card webplayer-panel">
-            <div className="panel-header panel-header-centered">
-              <div>
-                <div className="panel-title">Featured Stream</div>
-                <div className="panel-subtitle">
-                  Watch live right from the homepage
-                </div>
+    <main className="page-main">
+      <div className="page-content">
+        <section className="hero-section refined-hero">
+          <div className="hero-stack">
+            <div className="hero-copy hero-copy-centered hero-banner-wrap">
+              <div className="hero-banner-card glass-card">
+                <img
+                  src="/branding/vanillabanner2.png"
+                  alt="VanillaBeamsTV"
+                  className="hero-banner-logo"
+                />
               </div>
             </div>
 
-            <div className="stream-frame large-stream-frame">
-              <iframe
-                title="VanillaBeamsTV Twitch player"
-                src={twitchEmbedSrc}
-                width="100%"
-                height="100%"
-                allowFullScreen
-              />
-            </div>
+            <div className="hero-panel glass-card webplayer-panel">
+              <div className="panel-header panel-header-centered">
+                <div>
+                  <div className="panel-title">Featured Stream</div>
+                  <div className="panel-subtitle">
+                    Watch live right from the homepage
+                  </div>
+                </div>
+              </div>
 
-            <div className="hero-actions centered-actions player-actions">
-              <a
-                className="btn btn-primary"
-                href="https://twitch.tv/vanillabeamstv"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Play size={16} />
-                Watch on Twitch
-              </a>
+              <div className="stream-frame large-stream-frame">
+                <iframe
+                  title="VanillaBeamsTV Twitch player"
+                  src={twitchEmbedSrc}
+                  width="100%"
+                  height="100%"
+                  allowFullScreen
+                />
+              </div>
 
-              <a
-                className="btn btn-secondary"
-                href="https://discord.gg/2DxZzVW3yj"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Users size={16} />
-                Join Discord
-              </a>
+              <div className="hero-actions centered-actions player-actions">
+                <a
+                  className="btn btn-primary"
+                  href="https://twitch.tv/vanillabeamstv"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Play size={16} />
+                  Watch on Twitch
+                </a>
+
+                <a
+                  className="btn btn-secondary"
+                  href="https://discord.gg/2DxZzVW3yj"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Users size={16} />
+                  Join Discord
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="about-section">
-        <div className="container single-column-wrap">
+        <section className="about-section">
           <div className="glass-card about-card-merged">
             <div className="about-grid-merged">
               <div className="about-copy">
@@ -138,70 +138,70 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="support" className="support-section">
-        <div className="container split-grid support-grid">
-          <div className="glass-card info-card">
-            <div className="section-label">Support</div>
-            <h2>Support the stream</h2>
-            <p>
-              The easiest ways to support are by subscribing on Twitch or
-              donating directly. Both help the stream grow and make it easier
-              to keep creating content for the community.
-            </p>
+        <section id="support" className="support-section">
+          <div className="split-grid support-grid">
+            <div className="glass-card info-card">
+              <div className="section-label">Support</div>
+              <h2>Support the stream</h2>
+              <p>
+                The easiest ways to support are by subscribing on Twitch or
+                donating directly. Both help the stream grow and make it easier
+                to keep creating content for the community.
+              </p>
 
-            <div className="support-actions centered-actions">
-              <a
-                href="https://twitch.tv/vanillabeamstv"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-primary"
-              >
-                Subscribe on Twitch
-              </a>
-              <a href="#" className="btn btn-secondary">
-                Donate
-              </a>
+              <div className="support-actions centered-actions">
+                <a
+                  href="https://twitch.tv/vanillabeamstv"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-primary"
+                >
+                  Subscribe on Twitch
+                </a>
+                <a href="#" className="btn btn-secondary">
+                  Donate
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div className="glass-card info-card">
-            <div className="section-label">Quick Links</div>
-            <h2>Everything in one place</h2>
-            <div className="quick-link-grid quick-link-grid-balanced">
-              {linkCards.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <a
-                    key={item.title}
-                    className={`mini-link-card ${
-                      item.featured ? "mini-link-card-featured" : ""
-                    }`}
-                    href={item.href}
-                    target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noreferrer" : undefined}
-                  >
-                    <span className="mini-link-icon">
-                      <Icon size={16} />
-                    </span>
-                    <span
-                      className={`mini-link-copy ${
-                        item.featured ? "mini-link-copy-featured" : ""
+            <div className="glass-card info-card">
+              <div className="section-label">Quick Links</div>
+              <h2>Everything in one place</h2>
+              <div className="quick-link-grid quick-link-grid-balanced">
+                {linkCards.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a
+                      key={item.title}
+                      className={`mini-link-card ${
+                        item.featured ? "mini-link-card-featured" : ""
                       }`}
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noreferrer" : undefined}
                     >
-                      <strong>{item.title}</strong>
-                      <small>{item.text}</small>
-                      {item.subtext ? <em>{item.subtext}</em> : null}
-                    </span>
-                  </a>
-                );
-              })}
+                      <span className="mini-link-icon">
+                        <Icon size={16} />
+                      </span>
+                      <span
+                        className={`mini-link-copy ${
+                          item.featured ? "mini-link-copy-featured" : ""
+                        }`}
+                      >
+                        <strong>{item.title}</strong>
+                        <small>{item.text}</small>
+                        {item.subtext ? <em>{item.subtext}</em> : null}
+                      </span>
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
   );
 }
