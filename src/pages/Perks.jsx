@@ -11,6 +11,9 @@ import {
   ShieldCheck,
   Gem,
   Compass,
+  Gift,
+  BadgeCheck,
+  SmilePlus,
 } from "lucide-react";
 
 const perkTiers = [
@@ -115,8 +118,8 @@ const perkHighlights = [
   },
   {
     icon: MapPinned,
-    title: "More protected land",
-    text: "Higher supporter tiers get more claim space, making long-term builds easier to protect without giving free items or creative tools.",
+    title: "GriefPrevention claim blocks",
+    text: "Every player starts with a fair base amount of claim blocks. Supporter ranks receive bonus claim blocks on top of that, giving more room to protect builds without giving free items or creative tools.",
   },
   {
     icon: Home,
@@ -143,6 +146,29 @@ const notIncluded = [
   "/vanish",
   "/worldedit",
   "Staff commands",
+];
+
+const platformRewards = [
+  {
+    icon: Gift,
+    title: "Twitch subscriber perks",
+    text: "Your Twitch sub tier supports the stream directly and can unlock subscriber benefits like Twitch chat recognition, subscriber-only emotes, sub badges, and tier-based community rewards.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Discord recognition",
+    text: "Once your Twitch account is linked to Discord, your supporter tier can appear as a Discord role so the community knows you are helping support the stream.",
+  },
+  {
+    icon: Sparkles,
+    title: "Minecraft recognition",
+    text: "Your Minecraft rank can match your supporter tier, giving you a visible role, fair in-game perks, homes, claim blocks, and supporter identity on the SMP.",
+  },
+  {
+    icon: SmilePlus,
+    title: "Emotes and community identity",
+    text: "Higher Twitch tiers can unlock more emotes and stronger supporter recognition across Twitch and Discord, while Minecraft perks stay quality-of-life focused.",
+  },
 ];
 
 export default function PerksPage() {
@@ -211,18 +237,6 @@ export default function PerksPage() {
                       </div>
                     </div>
 
-                    <div className="section-label">{tier.tagline}</div>
-
-                    <p
-                      style={{
-                        marginBottom: "22px",
-                        color: "rgba(255, 230, 242, 0.7)",
-                        lineHeight: "1.7",
-                      }}
-                    >
-                      {tier.description}
-                    </p>
-
                     <div className="perk-list perk-list-tight">
                       {tier.perks.map((perk) => (
                         <div key={perk} className="perk-list-item">
@@ -254,8 +268,6 @@ export default function PerksPage() {
               </div>
 
               <div className="glass-card info-card perks-info-card">
-                <div className="section-label"></div>
-
                 <div className="benefit-stack benefit-stack-clean">
                   {perkHighlights.map((item) => {
                     const Icon = item.icon;
@@ -404,18 +416,20 @@ export default function PerksPage() {
               <div className="glass-card info-card">
                 <div className="section-label">Fair Play Promise</div>
                 <h2>No pay-to-win power</h2>
-                <div spacer style={{ marginBottom: "16px" }} />
+
+                <div style={{ marginBottom: "16px" }} />
+
                 <p>
-                 Supporter ranks are quality-of-life and
-                  cosmetic focused. They reward support without selling power,
-                  free items, creative tools, or staff control.
+                  Supporter ranks are quality-of-life and cosmetic focused. They
+                  reward support without selling power, free items, creative
+                  tools, or staff control.
                 </p>
 
                 <div className="perk-list" style={{ marginTop: "24px" }}>
                   {notIncluded.map((item) => (
                     <div key={item} className="perk-list-item">
                       <Gem size={15} />
-                      <span>{item} are not included in supporter ranks</span>
+                      <span>{item} is not included in supporter ranks</span>
                     </div>
                   ))}
                 </div>
@@ -424,40 +438,31 @@ export default function PerksPage() {
               <div className="glass-card info-card">
                 <div className="section-label">Community Identity</div>
                 <h2>Multi-platform Rewards</h2>
-                <div spacer style={{ marginBottom: "16px" }} />
+
+                <div style={{ marginBottom: "16px" }} />
+
                 <p>
-                  Once your Twitch, Discord, and Minecraft accounts are linked,
-                  your supporter status can show across the community through
-                  your Discord role, Minecraft rank, chat identity, and
-                  supporter perks.
+                  Link your Twitch, Discord, and Minecraft accounts to redeem
+                  rewards across the full VanillaBeamsTV community.
                 </p>
 
                 <div className="benefit-stack" style={{ marginTop: "26px" }}>
-                  <div className="benefit-item">
-                    <div className="benefit-icon">
-                      <MessageSquareText size={18} />
-                    </div>
-                    <div className="benefit-copy">
-                      <strong>Discord recognition</strong>
-                      <p>
-                        Your supporter tier can appear as a Discord role so the
-                        community knows you are helping support the stream.
-                      </p>
-                    </div>
-                  </div>
+                  {platformRewards.map((item) => {
+                    const Icon = item.icon;
 
-                  <div className="benefit-item">
-                    <div className="benefit-icon">
-                      <Sparkles size={18} />
-                    </div>
-                    <div className="benefit-copy">
-                      <strong>Minecraft recognition</strong>
-                      <p>
-                        Your Minecraft rank can match your supporter tier,
-                        giving you a visible role and fair in-game perks.
-                      </p>
-                    </div>
-                  </div>
+                    return (
+                      <div key={item.title} className="benefit-item">
+                        <div className="benefit-icon">
+                          <Icon size={18} />
+                        </div>
+
+                        <div className="benefit-copy">
+                          <strong>{item.title}</strong>
+                          <p>{item.text}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -467,6 +472,7 @@ export default function PerksPage() {
             <div className="glass-card perks-cta-card">
               <div className="section-label">Get Started</div>
               <h2>Subscribe, join Discord, and link up</h2>
+
               <p>
                 Once you sub on Twitch and connect everything, your Discord role
                 and Minecraft rank can reflect your supporter tier.
