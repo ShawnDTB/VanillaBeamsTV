@@ -1,19 +1,13 @@
-.home-hero-stack {
+.home-hero-section {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.home-hero-banner-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 20px;
 }
 
 .home-hero-banner-card {
   width: 100%;
-  padding: 16px;
-  border-radius: 34px;
+  padding: 12px;
+  border-radius: 30px;
   position: relative;
   overflow: hidden;
 }
@@ -23,8 +17,12 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at top, rgba(255, 122, 188, 0.12), transparent 38%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    radial-gradient(circle at top, rgba(255, 122, 188, 0.1), transparent 38%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.01)
+    );
   pointer-events: none;
 }
 
@@ -32,76 +30,82 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-height: 325px;
+  max-height: 255px;
   margin: 0 auto;
-  border-radius: 24px;
+  border-radius: 22px;
   object-fit: cover;
-  filter: drop-shadow(0 12px 30px rgba(255, 60, 150, 0.12));
+  filter: drop-shadow(0 10px 24px rgba(255, 60, 150, 0.1));
 }
 
-.home-hero-panel {
-  padding: 18px;
+.home-featured-stream-card {
+  padding: 22px;
+  overflow: hidden;
 }
 
-.home-webplayer-panel {
-  width: 100%;
-}
-
-.home-panel-header {
+.home-featured-stream-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 4px 4px 14px;
-}
-
-.home-panel-header-centered {
-  justify-content: center;
   text-align: center;
-  padding-bottom: 18px;
+  margin-bottom: 16px;
 }
 
-.home-panel-title {
-  font-weight: 700;
-  font-size: 1rem;
+.home-featured-stream-title {
+  font-weight: 800;
+  font-size: 1.22rem;
+  color: #fff;
+  line-height: 1.1;
 }
 
-.home-panel-subtitle {
-  margin-top: 4px;
-  font-size: 0.74rem;
+.home-featured-stream-subtitle {
+  margin-top: 6px;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: rgba(255, 220, 240, 0.48);
+  color: rgba(255, 220, 240, 0.5);
 }
 
-.home-stream-frame {
+.home-featured-stream-frame {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 24px;
   overflow: hidden;
-  background: #000;
+  background: #050308;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-.home-large-stream-frame {
-  aspect-ratio: 16 / 8.4;
+.home-featured-stream-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.home-featured-stream-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 20px;
 }
 
 .home-about-card {
-  padding: 32px;
+  padding: 30px;
 }
 
 .home-about-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 28px;
+  gap: 26px;
   align-items: center;
 }
 
 .home-about-copy h2 {
   margin: 0;
   line-height: 1.1;
-  font-size: 2rem;
+  font-size: 1.95rem;
 }
 
 .home-about-copy p {
@@ -109,6 +113,7 @@
   font-size: 1rem;
   line-height: 1.75;
   color: rgba(255, 230, 242, 0.7);
+  max-width: 760px;
 }
 
 .home-about-portrait-wrap {
@@ -124,7 +129,16 @@
 }
 
 .home-large-creator-image {
-  max-width: 340px;
+  max-width: 320px;
+}
+
+.home-support-grid {
+  align-items: stretch;
+}
+
+.home-support-card,
+.home-links-card {
+  height: 100%;
 }
 
 .home-support-actions {
@@ -136,43 +150,37 @@
 
 .home-quick-link-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 14px;
   margin-top: 22px;
 }
 
-.home-mini-link-card-featured {
-  grid-column: 1 / -1;
-}
-
 .home-mini-link-card {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 16px;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
 }
 
 .home-mini-link-card:hover {
   background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-1px);
 }
 
 .home-mini-link-card-featured {
-  padding: 24px;
-  align-items: center;
-}
-
-.home-mini-link-card-featured .home-mini-link-icon {
-  width: 44px;
-  height: 44px;
+  padding: 20px;
 }
 
 .home-mini-link-icon {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   display: grid;
   place-items: center;
   border-radius: 14px;
@@ -185,12 +193,7 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
-}
-
-.home-mini-link-copy-featured {
-  width: 100%;
-  align-items: center;
-  text-align: center;
+  min-width: 0;
 }
 
 .home-mini-link-copy strong {
@@ -198,30 +201,18 @@
   color: #fff;
 }
 
-.home-mini-link-copy-featured strong {
-  font-size: 1.15rem;
-}
-
 .home-mini-link-copy small {
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   line-height: 1.55;
-  color: rgba(255, 230, 242, 0.65);
-}
-
-.home-mini-link-copy-featured small {
-  font-size: 0.95rem;
+  color: rgba(255, 230, 242, 0.68);
 }
 
 .home-mini-link-copy em {
   font-style: normal;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   line-height: 1.5;
-  color: rgba(255, 196, 233, 0.78);
+  color: rgba(255, 196, 233, 0.8);
   margin-top: 2px;
-}
-
-.home-mini-link-copy-featured em {
-  font-size: 0.9rem;
 }
 
 @media (max-width: 1100px) {
@@ -232,27 +223,41 @@
   .home-about-portrait-wrap {
     justify-content: flex-start;
   }
+
+  .home-large-creator-image {
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 820px) {
   .home-quick-link-grid {
     grid-template-columns: 1fr;
   }
-
-  .home-mini-link-card-featured {
-    grid-column: auto;
-  }
 }
 
 @media (max-width: 560px) {
-  .home-about-card,
-  .home-hero-panel,
-  .home-hero-banner-card {
-    padding: 20px;
+  .home-hero-banner-card,
+  .home-featured-stream-card,
+  .home-about-card {
+    padding: 18px;
   }
 
-  .home-support-actions {
+  .home-support-actions,
+  .home-featured-stream-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .home-featured-stream-frame {
+    border-radius: 18px;
+  }
+
+  .home-hero-banner-logo {
+    max-height: 190px;
+    border-radius: 18px;
+  }
+
+  .home-about-copy h2 {
+    font-size: 1.7rem;
   }
 }
