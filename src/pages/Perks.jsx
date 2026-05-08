@@ -16,6 +16,8 @@ import {
   SmilePlus,
 } from "lucide-react";
 
+import "./Perks.css";
+
 const perkTiers = [
   {
     name: "Subby",
@@ -119,7 +121,7 @@ const perkHighlights = [
   {
     icon: MapPinned,
     title: "GriefPrevention claim blocks",
-    text: "Every player starts with a fair base amount of claim blocks. Supporter ranks receive bonus claim blocks on top of that, giving more room to protect builds without giving free items or creative tools.",
+    text: "Every player starts with a fair base amount of claim blocks. Supporter ranks receive bonus claim blocks on top of that.",
   },
   {
     icon: Home,
@@ -129,7 +131,7 @@ const perkHighlights = [
   {
     icon: Compass,
     title: "Better convenience",
-    text: "GOAT and Beam Boss unlock stronger utility commands like /workbench, /near, and /enderchest while keeping normal survival progression intact.",
+    text: "GOAT and Beam Boss unlock stronger utility commands like /workbench, /near, and /enderchest while keeping survival intact.",
   },
 ];
 
@@ -211,7 +213,7 @@ export default function PerksPage() {
           </section>
 
           <section className="perks-tiers-section">
-            <div className="perks-tiers-grid">
+            <div className="perks-tier-grid">
               {perkTiers.map((tier) => {
                 const Icon = tier.icon;
 
@@ -228,11 +230,11 @@ export default function PerksPage() {
                       </div>
                     </div>
 
-                    <div className="perk-mapping-row">
-                      <div className="perk-mapping-box">
+                    <div className="perks-mapping-row">
+                      <div className="perks-mapping-box">
                         <span>Discord Role</span>
                       </div>
-                      <div className="perk-mapping-box">
+                      <div className="perks-mapping-box">
                         <span>Minecraft Rank</span>
                       </div>
                     </div>
@@ -257,26 +259,27 @@ export default function PerksPage() {
                 <div className="section-label">How Linking Works</div>
                 <h2>Connect everything once</h2>
 
-                <div className="linking-steps">
+                <div className="perks-linking-steps">
                   {linkingSteps.map((step, index) => (
-                    <div key={step} className="linking-step-item">
-                      <div className="linking-step-number">{index + 1}</div>
+                    <div key={step} className="perks-linking-step-item">
+                      <div className="perks-linking-step-number">
+                        {index + 1}
+                      </div>
                       <p>{step}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="glass-card info-card perks-info-card">
-                <div className="benefit-stack benefit-stack-clean">
+              <div className="glass-card info-card">
+                <div className="section-label">Why These Perks Work</div>
+
+                <div className="perks-benefit-stack">
                   {perkHighlights.map((item) => {
                     const Icon = item.icon;
 
                     return (
-                      <div
-                        key={item.title}
-                        className="benefit-item benefit-item-clean"
-                      >
+                      <div key={item.title} className="benefit-item">
                         <div className="benefit-icon">
                           <Icon size={18} />
                         </div>
@@ -295,20 +298,8 @@ export default function PerksPage() {
 
           <section className="perks-tiers-section">
             <div className="glass-card info-card">
-              <div
-                style={{
-                  overflowX: "auto",
-                  marginTop: "8px",
-                }}
-              >
-                <table
-                  style={{
-                    width: "100%",
-                    borderCollapse: "separate",
-                    borderSpacing: "0 12px",
-                    minWidth: "780px",
-                  }}
-                >
+              <div className="perks-rank-table-wrap">
+                <table className="perks-rank-table">
                   <thead>
                     <tr>
                       {[
@@ -319,19 +310,7 @@ export default function PerksPage() {
                         "Cosmetics",
                         "Utility",
                       ].map((heading) => (
-                        <th
-                          key={heading}
-                          style={{
-                            textAlign: "left",
-                            padding: "0 16px 8px",
-                            fontSize: "0.76rem",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.16em",
-                            color: "rgba(255, 220, 240, 0.65)",
-                          }}
-                        >
-                          {heading}
-                        </th>
+                        <th key={heading}>{heading}</th>
                       ))}
                     </tr>
                   </thead>
@@ -339,70 +318,12 @@ export default function PerksPage() {
                   <tbody>
                     {rankComparison.map((row) => (
                       <tr key={row.rank}>
-                        <td
-                          style={{
-                            padding: "18px 16px",
-                            background: "rgba(255, 255, 255, 0.045)",
-                            borderTopLeftRadius: "18px",
-                            borderBottomLeftRadius: "18px",
-                            fontWeight: "800",
-                            color: "#fff",
-                          }}
-                        >
-                          {row.rank}
-                        </td>
-
-                        <td
-                          style={{
-                            padding: "18px 16px",
-                            background: "rgba(255, 255, 255, 0.045)",
-                            color: "rgba(255, 234, 244, 0.84)",
-                          }}
-                        >
-                          {row.homes}
-                        </td>
-
-                        <td
-                          style={{
-                            padding: "18px 16px",
-                            background: "rgba(255, 255, 255, 0.045)",
-                            color: "rgba(255, 234, 244, 0.84)",
-                          }}
-                        >
-                          {row.claims}
-                        </td>
-
-                        <td
-                          style={{
-                            padding: "18px 16px",
-                            background: "rgba(255, 255, 255, 0.045)",
-                            color: "rgba(255, 234, 244, 0.84)",
-                          }}
-                        >
-                          {row.travel}
-                        </td>
-
-                        <td
-                          style={{
-                            padding: "18px 16px",
-                            background: "rgba(255, 255, 255, 0.045)",
-                            color: "rgba(255, 234, 244, 0.84)",
-                          }}
-                        >
-                          {row.cosmetics}
-                        </td>
-
-                        <td
-                          style={{
-                            padding: "18px 16px",
-                            background: "rgba(255, 255, 255, 0.045)",
-                            borderTopRightRadius: "18px",
-                            borderBottomRightRadius: "18px",
-                            color: "rgba(255, 234, 244, 0.84)",
-                          }}
-                        >
-                          {row.utility}
-                        </td>
+                        <td className="perks-table-first">{row.rank}</td>
+                        <td>{row.homes}</td>
+                        <td>{row.claims}</td>
+                        <td>{row.travel}</td>
+                        <td>{row.cosmetics}</td>
+                        <td className="perks-table-last">{row.utility}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -417,15 +338,13 @@ export default function PerksPage() {
                 <div className="section-label">Fair Play Promise</div>
                 <h2>No pay-to-win power</h2>
 
-                <div style={{ marginBottom: "16px" }} />
-
-                <p>
+                <p className="perks-section-copy">
                   Supporter ranks are quality-of-life and cosmetic focused. They
                   reward support without selling power, free items, creative
                   tools, or staff control.
                 </p>
 
-                <div className="perk-list" style={{ marginTop: "24px" }}>
+                <div className="perk-list perks-not-included-list">
                   {notIncluded.map((item) => (
                     <div key={item} className="perk-list-item">
                       <Gem size={15} />
@@ -439,14 +358,12 @@ export default function PerksPage() {
                 <div className="section-label">Community Identity</div>
                 <h2>Multi-platform Rewards</h2>
 
-                <div style={{ marginBottom: "16px" }} />
-
-                <p>
+                <p className="perks-section-copy">
                   Link your Twitch, Discord, and Minecraft accounts to redeem
                   rewards across the full VanillaBeamsTV community.
                 </p>
 
-                <div className="benefit-stack" style={{ marginTop: "26px" }}>
+                <div className="perks-benefit-stack">
                   {platformRewards.map((item) => {
                     const Icon = item.icon;
 

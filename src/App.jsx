@@ -13,6 +13,7 @@ function SiteHeader() {
           <div className="brand-icon">
             <Heart size={22} />
           </div>
+
           <div>
             <div className="brand-title">VanillaBeamsTV</div>
             <div className="brand-subtitle">Live • Community • Minecraft SMP</div>
@@ -24,7 +25,11 @@ function SiteHeader() {
           <Link to="/player-guide">Player Guide</Link>
           <Link to="/perks">Perks</Link>
           <a href="https://vanillabeams.tv/map">Map</a>
-          <a href="https://discord.gg/2DxZzVW3yj" target="_blank" rel="noreferrer">
+          <a
+            href="https://discord.gg/2DxZzVW3yj"
+            target="_blank"
+            rel="noreferrer"
+          >
             Discord
           </a>
         </nav>
@@ -48,7 +53,9 @@ export default function App() {
     <div className="site-shell">
       <div className="site-bg-glow site-bg-glow-top" />
       <div className="site-bg-glow site-bg-glow-bottom" />
+
       <SiteHeader />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/player-guide" element={<PlayerGuidePage />} />

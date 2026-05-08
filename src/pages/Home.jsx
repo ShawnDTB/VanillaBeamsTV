@@ -1,11 +1,6 @@
 import { useMemo } from "react";
-import {
-  Play,
-  Users,
-  MonitorPlay,
-  Video,
-  Gamepad2,
-} from "lucide-react";
+import { Play, Users, MonitorPlay, Video, Gamepad2 } from "lucide-react";
+import "./Home.css";
 
 const linkCards = [
   {
@@ -51,35 +46,36 @@ export default function HomePage() {
   const twitchEmbedSrc = useMemo(() => {
     const parent =
       typeof window !== "undefined" ? window.location.hostname : "localhost";
+
     return `https://player.twitch.tv/?channel=vanillabeamstv&parent=${parent}&muted=true`;
   }, []);
 
   return (
     <main className="page-main">
       <div className="page-content">
-        <section className="hero-section refined-hero">
-          <div className="hero-stack">
-            <div className="hero-copy hero-copy-centered hero-banner-wrap">
-              <div className="hero-banner-card glass-card">
+        <section className="hero-section home-hero-section">
+          <div className="home-hero-stack">
+            <div className="home-hero-banner-wrap">
+              <div className="home-hero-banner-card glass-card">
                 <img
                   src="/branding/vanillabanner2.png"
                   alt="VanillaBeamsTV"
-                  className="hero-banner-logo"
+                  className="home-hero-banner-logo"
                 />
               </div>
             </div>
 
-            <div className="hero-panel glass-card webplayer-panel">
-              <div className="panel-header panel-header-centered">
+            <div className="home-hero-panel glass-card home-webplayer-panel">
+              <div className="home-panel-header home-panel-header-centered">
                 <div>
-                  <div className="panel-title">Featured Stream</div>
-                  <div className="panel-subtitle">
+                  <div className="home-panel-title">Featured Stream</div>
+                  <div className="home-panel-subtitle">
                     Watch live right from the homepage
                   </div>
                 </div>
               </div>
 
-              <div className="stream-frame large-stream-frame">
+              <div className="home-stream-frame home-large-stream-frame">
                 <iframe
                   title="VanillaBeamsTV Twitch player"
                   src={twitchEmbedSrc}
@@ -115,11 +111,14 @@ export default function HomePage() {
         </section>
 
         <section className="about-section">
-          <div className="glass-card about-card-merged">
-            <div className="about-grid-merged">
-              <div className="about-copy">
+          <div className="glass-card home-about-card">
+            <div className="home-about-grid">
+              <div className="home-about-copy">
                 <div className="section-label">About VanillaBeamsTV</div>
-                <h2>Chill streams, good vibes, and a community that likes to just hang out</h2>
+                <h2>
+                  Chill streams, good vibes, and a community that likes to just
+                  hang out
+                </h2>
                 <p>
                   VanillaBeamsTV is a chill streamer who plays Rivals,
                   Minecraft, and enjoys relaxing, vibing out, and talking with
@@ -129,11 +128,11 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="about-portrait-wrap">
+              <div className="home-about-portrait-wrap">
                 <img
                   src="/branding/VanillaBeamsTV.png"
                   alt="VanillaBeamsTV profile art"
-                  className="creator-image large-creator-image"
+                  className="home-creator-image home-large-creator-image"
                 />
               </div>
             </div>
@@ -141,7 +140,7 @@ export default function HomePage() {
         </section>
 
         <section id="support" className="support-section">
-          <div className="split-grid support-grid">
+          <div className="split-grid home-support-grid">
             <div className="glass-card info-card">
               <div className="section-label">Support</div>
               <h2>Support the stream</h2>
@@ -151,7 +150,7 @@ export default function HomePage() {
                 to keep creating content for the community.
               </p>
 
-              <div className="support-actions centered-actions">
+              <div className="home-support-actions centered-actions">
                 <a
                   href="https://twitch.tv/vanillabeamstv"
                   target="_blank"
@@ -160,6 +159,7 @@ export default function HomePage() {
                 >
                   Subscribe on Twitch
                 </a>
+
                 <a href="#" className="btn btn-secondary">
                   Donate
                 </a>
@@ -169,25 +169,28 @@ export default function HomePage() {
             <div className="glass-card info-card">
               <div className="section-label">Quick Links</div>
               <h2>Everything in one place</h2>
-              <div className="quick-link-grid quick-link-grid-balanced">
+
+              <div className="home-quick-link-grid">
                 {linkCards.map((item) => {
                   const Icon = item.icon;
+
                   return (
                     <a
                       key={item.title}
-                      className={`mini-link-card ${
-                        item.featured ? "mini-link-card-featured" : ""
+                      className={`home-mini-link-card ${
+                        item.featured ? "home-mini-link-card-featured" : ""
                       }`}
                       href={item.href}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noreferrer" : undefined}
                     >
-                      <span className="mini-link-icon">
+                      <span className="home-mini-link-icon">
                         <Icon size={16} />
                       </span>
+
                       <span
-                        className={`mini-link-copy ${
-                          item.featured ? "mini-link-copy-featured" : ""
+                        className={`home-mini-link-copy ${
+                          item.featured ? "home-mini-link-copy-featured" : ""
                         }`}
                       >
                         <strong>{item.title}</strong>

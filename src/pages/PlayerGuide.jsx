@@ -18,6 +18,8 @@ import {
   Shovel,
 } from "lucide-react";
 
+import "./PlayerGuide.css";
+
 const starterSteps = [
   {
     icon: Gamepad2,
@@ -199,17 +201,49 @@ const importantRules = [
 ];
 
 function CommandPill({ children }) {
-  return <code className="command-pill">{children}</code>;
+  return <code className="vg-command-pill">{children}</code>;
 }
 
 function MiniCommandList({ commands }) {
   if (!commands.length) return null;
 
   return (
-    <div className="command-pill-list">
+    <div className="vg-command-pill-list">
       {commands.map((command) => (
         <CommandPill key={command}>{command}</CommandPill>
       ))}
+    </div>
+  );
+}
+
+function RoleCard({ role }) {
+  const Icon = role.icon;
+
+  return (
+    <div className="glass-card perk-tier-card vg-role-card">
+      <div className="perk-tier-top">
+        <div className="perk-tier-icon">
+          <Icon size={20} />
+        </div>
+
+        <div className="perk-tier-heading">
+          <div className="perk-tier-name">{role.name}</div>
+          <div className="perk-tier-subtitle">{role.label}</div>
+        </div>
+      </div>
+
+      <p className="vg-role-description">{role.description}</p>
+
+      <div className="perk-list perk-list-tight">
+        {role.notes.map((note) => (
+          <div key={note} className="perk-list-item">
+            <Check size={15} />
+            <span>{note}</span>
+          </div>
+        ))}
+      </div>
+
+      {role.commands ? <MiniCommandList commands={role.commands} /> : null}
     </div>
   );
 }
@@ -255,19 +289,21 @@ export default function PlayerGuidePage() {
               <div className="section-label">Quick Start</div>
               <h2>What to do first</h2>
 
-              <div className="start-grid">
+              <div className="vg-start-grid">
                 {starterSteps.map((step) => {
                   const Icon = step.icon;
 
                   return (
-                    <div key={step.title} className="start-card">
-                      <div className="benefit-icon start-card-icon">
+                    <div key={step.title} className="vg-start-card">
+                      <div className="benefit-icon vg-start-card-icon">
                         <Icon size={18} />
                       </div>
 
-                      <strong className="start-card-title">{step.title}</strong>
+                      <strong className="vg-start-card-title">
+                        {step.title}
+                      </strong>
 
-                      <p className="start-card-text">{step.text}</p>
+                      <p className="vg-start-card-text">{step.text}</p>
 
                       <MiniCommandList commands={step.commands} />
                     </div>
@@ -278,60 +314,27 @@ export default function PlayerGuidePage() {
           </section>
 
           <section className="perks-tiers-section">
-            <div className="supporter-role-grid">
-              {supporterGuides.map((role) => {
-                const Icon = role.icon;
-
-                return (
-                  <div
-                    key={role.name}
-                    className="glass-card perk-tier-card supporter-card"
-                  >
-                    <div className="perk-tier-top">
-                      <div className="perk-tier-icon">
-                        <Icon size={20} />
-                      </div>
-
-                      <div className="perk-tier-heading">
-                        <div className="perk-tier-name">{role.name}</div>
-                        <div className="perk-tier-subtitle">{role.label}</div>
-                      </div>
-                    </div>
-
-                    <p className="role-card-description">{role.description}</p>
-
-                    <div className="perk-list perk-list-tight">
-                      {role.notes.map((note) => (
-                        <div key={note} className="perk-list-item">
-                          <Check size={15} />
-                          <span>{note}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <MiniCommandList commands={role.commands} />
-                  </div>
-                );
-              })}
+            <div className="vg-supporter-grid">
+              {supporterGuides.map((role) => (
+                <RoleCard key={role.name} role={role} />
+              ))}
             </div>
           </section>
 
           <section className="perks-linking-section">
-            <div className="glass-card info-card claim-guide-card">
+            <div className="glass-card info-card vg-claim-guide-card">
               <div className="section-label">Claiming Land</div>
               <h2>Protect your builds</h2>
 
-              <div style={{ marginBottom: "16px" }} />
-
-              <p>
+              <p className="vg-section-copy">
                 The server uses GriefPrevention claim blocks to protect bases,
                 farms, storage, and community builds. To create or resize a
                 claim, use a golden shovel and right-click the corners of the
                 area you want to protect.
               </p>
 
-              <div className="claim-points-grid">
-                <div className="claim-point">
+              <div className="vg-claim-grid">
+                <div className="vg-claim-point">
                   <div className="benefit-icon">
                     <Shovel size={18} />
                   </div>
@@ -354,7 +357,7 @@ export default function PlayerGuidePage() {
                   </div>
                 </div>
 
-                <div className="claim-point">
+                <div className="vg-claim-point">
                   <div className="benefit-icon">
                     <Users size={18} />
                   </div>
@@ -378,19 +381,21 @@ export default function PlayerGuidePage() {
                   </div>
                 </div>
 
-                <div className="claim-point claim-bonus-point">
+                <div className="vg-claim-point vg-claim-bonus-point">
                   <div className="benefit-icon">
                     <MapPinned size={18} />
                   </div>
 
-                  <div className="benefit-copy claim-bonus-copy">
+                  <div className="benefit-copy vg-claim-bonus-copy">
                     <strong>Claim block bonuses</strong>
 
-                    <div className="claim-bonus-table">
+                    <div className="vg-claim-bonus-table">
                       {claimBlockBonuses.map((item) => (
-                        <div key={item.rank} className="claim-bonus-row">
-                          <span className="claim-bonus-rank">{item.rank}</span>
-                          <span className="claim-bonus-amount">
+                        <div key={item.rank} className="vg-claim-bonus-row">
+                          <span className="vg-claim-bonus-rank">
+                            {item.rank}
+                          </span>
+                          <span className="vg-claim-bonus-amount">
                             {item.amount}
                           </span>
                         </div>
@@ -403,39 +408,10 @@ export default function PlayerGuidePage() {
           </section>
 
           <section className="perks-linking-section">
-            <div className="community-role-grid">
-              {communityRoles.map((role) => {
-                const Icon = role.icon;
-
-                return (
-                  <div
-                    key={role.name}
-                    className="glass-card perk-tier-card community-role-card"
-                  >
-                    <div className="perk-tier-top">
-                      <div className="perk-tier-icon">
-                        <Icon size={20} />
-                      </div>
-
-                      <div className="perk-tier-heading">
-                        <div className="perk-tier-name">{role.name}</div>
-                        <div className="perk-tier-subtitle">{role.label}</div>
-                      </div>
-                    </div>
-
-                    <p className="role-card-description">{role.description}</p>
-
-                    <div className="perk-list perk-list-tight">
-                      {role.notes.map((note) => (
-                        <div key={note} className="perk-list-item">
-                          <Check size={15} />
-                          <span>{note}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="vg-community-grid">
+              {communityRoles.map((role) => (
+                <RoleCard key={role.name} role={role} />
+              ))}
             </div>
           </section>
 
@@ -444,14 +420,12 @@ export default function PlayerGuidePage() {
               <div className="section-label">Important</div>
               <h2>What ranks do not give</h2>
 
-              <div style={{ marginBottom: "16px" }} />
-
-              <p>
+              <p className="vg-section-copy">
                 Supporter ranks are meant to reward support without selling
                 power. These rules help keep the SMP fair and fun for everyone.
               </p>
 
-              <div className="perk-list" style={{ marginTop: "24px" }}>
+              <div className="perk-list vg-important-list">
                 {importantRules.map((rule) => (
                   <div key={rule} className="perk-list-item">
                     <AlertTriangle size={15} />

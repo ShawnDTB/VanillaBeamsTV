@@ -1,0 +1,176 @@
+.vg-command-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.vg-command-pill {
+  display: inline-flex;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 238, 247, 0.92);
+  font-size: 0.86rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.vg-section-copy {
+  margin: 18px 0 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 230, 242, 0.7);
+}
+
+.vg-start-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.vg-start-card {
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vg-start-card-icon {
+  margin-bottom: 14px;
+}
+
+.vg-start-card-title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.vg-start-card-text,
+.vg-role-description {
+  color: rgba(255, 230, 242, 0.7);
+  line-height: 1.7;
+}
+
+.vg-role-description {
+  margin-bottom: 18px;
+}
+
+.vg-supporter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.vg-role-card {
+  height: 100%;
+}
+
+.vg-claim-guide-card {
+  padding: 34px;
+}
+
+.vg-claim-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.vg-claim-point {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vg-claim-bonus-point {
+  grid-column: 1 / -1;
+}
+
+.vg-claim-bonus-copy {
+  min-width: 0;
+  width: 100%;
+}
+
+.vg-claim-bonus-table {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+  width: 100%;
+}
+
+.vg-claim-bonus-row {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.55fr) minmax(220px, 1.45fr);
+  gap: 18px;
+  align-items: center;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.vg-claim-bonus-rank {
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.vg-claim-bonus-amount {
+  color: rgba(255, 234, 244, 0.78);
+  line-height: 1.45;
+}
+
+.vg-community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.vg-important-list {
+  margin-top: 24px;
+}
+
+@media (max-width: 1100px) {
+  .vg-claim-grid,
+  .vg-community-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vg-claim-bonus-table {
+    grid-template-columns: 1fr;
+  }
+
+  .vg-claim-bonus-row {
+    grid-template-columns: minmax(110px, 0.45fr) minmax(220px, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .vg-start-grid,
+  .vg-supporter-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .vg-claim-guide-card {
+    padding: 20px;
+  }
+
+  .vg-claim-bonus-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
