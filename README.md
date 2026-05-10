@@ -2,7 +2,7 @@
 
 A custom creator website and Minecraft SMP hub for **VanillaBeamsTV**. The project brings the stream, community links, player guide, server map, Discord, Twitch support, and Minecraft rank/perk information into one branded home base.
 
-This website is built and maintained by **Designed to Breakthrough LLC / DTB Solutions** as a real-world creator brand project focused on frontend development, community systems, and digital infrastructure.
+This website is built and maintained by **Designed to Breakthrough LLC** as a real-world creator brand project focused on frontend development, community systems, and digital infrastructure.
 
 ## Live Project
 
@@ -10,10 +10,9 @@ This website is built and maintained by **Designed to Breakthrough LLC / DTB Sol
 - **Minecraft SMP:** `play.vanillabeams.tv`
 - **Bedrock Port:** `19132`
 - **Map:** https://vanillabeams.tv/map
-- **Discord:** https://discord.gg/2DxZzVW3yj
-- **Twitch:** https://twitch.tv/vanillabeamstv
-- **TikTok:** https://www.tiktok.com/@vanillabeamstv
-- **YouTube:** https://www.youtube.com/channel/UCDmY6JLZo_L5elPM_3_l6BQ
+- **Discord:** https://vanillabeams.tv/discord
+- **Twitch:** https://vanillabeams.tv/live
+- **TikTok:** https://vanillabeams.tv/tiktok
 
 ## Current Project Status
 
