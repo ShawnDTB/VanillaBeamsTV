@@ -153,3 +153,61 @@ VanillaBeamsTV/
 │   └── main.jsx
 ├── package.json
 └── README.md
+```
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Deployment Notes
+
+The site is intended to deploy through **Cloudflare Pages** with the custom domain `vanillabeams.tv`.
+
+Recommended build settings:
+
+```text
+Build command: npm run build
+Build output directory: dist
+```
+
+The Twitch embed requires the correct site domain to be passed as the `parent` value. The current implementation dynamically reads the active hostname so the embed works across the deployed domain and local development environments.
+
+## Future Improvements
+
+Planned or likely future improvements include:
+
+- Finalize donation/support destination
+- Add clearer server rules and FAQ content
+- Add a dedicated staff/contact or help section
+- Expand player onboarding for Bedrock console users
+- Add troubleshooting steps for account linking and rank sync
+- Add clearer documentation for DiscordSRV, LuckPerms, Floodgate, and GriefPrevention setup
+- Continue polishing visual consistency across pages
+
+## Built By
+
+**Designed to Breakthrough LLC**
+
+This project represents a practical example of combining website development, creator branding, community infrastructure, and Minecraft server systems into one cohesive digital hub.
